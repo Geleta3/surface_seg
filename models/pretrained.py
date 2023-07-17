@@ -5,7 +5,7 @@ from torch import nn
 import torchvision
 from torchvision import models 
 from torch.utils import model_zoo as model_zoo
-from .g_unet_r import MultiInputNet
+
 
 model_urls = {
     'resnet50': 'https://download.pytorch.org/models/resnet50-11ad3fa6.pth', 
@@ -17,14 +17,13 @@ model_urls = {
 class Encoder(nn.Module):
     def __init__(self, img_channels, conv_channels, model='resnet50'):
         super().__init__()
-        
-        self.input_net = MultiInputNet(img_channels, conv_channels)
+
         if model in ['resnet50', 'R-50']:
-            self.pretrained = Resnet(256, 64)
+            self.pretrained = Resnet(1, 64)
         elif model in ['mobilenet', 'mobilenet_v2', 'M']:
-            self.pretrained = Mobilenet(256, 32)
+            self.pretrained = Mobilenet(1, 32)
         elif model in ['efficient-b0', 'E-b0']:
-            self.pretrained = EfficientB0(256, 32)
+            self.pretrained = EfficientB0(1, 32)
         else:
             raise ValueError()
             

@@ -4,18 +4,15 @@ import torch
 import numpy as np 
 import math 
 from typing import Tuple, List
-from .img_processing import MultiInputImage
 
 
 class Dataset(Dataset):
-    def __init__(self, classes, img_size=224, img_channel=3, preprocess=True, 
+    def __init__(self, classes, img_size=224, img_channel=3,
                  make_binary=True, transform=None,):
         
         self.transform = transform
         self.classes = classes
         self.img_channel = img_channel
-        self.preprocess = preprocess
-        self.multi_input = MultiInputImage()
         self.make_binary = make_binary
         
         if isinstance(img_size, (Tuple, List)):
@@ -55,11 +52,6 @@ class Dataset(Dataset):
         
         if self.transform is not None:
             image, mask = self.transform(image, mask)
-            
-        if self.preprocess:
-            image = self.multi_input(image)
-            image_channels = self.multi_input.img_channels
-            self.multi_input.img_channels = []
             
         if w < h:
             r, l = math.floor((self.img_size-w)/2), math.ceil((self.img_size-w)/2)

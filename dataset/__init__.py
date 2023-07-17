@@ -14,7 +14,6 @@ def get_dataset(config, mode, transform=None, *args, **kwargs):
                              img_size=config.img_dim, 
                              img_channel=config.img_channel['mt'], 
                              train_valid_split=config.train_valid_split,
-                             preprocess=config.preprocess,
                              transform=transform,
                              *args, **kwargs
                              )
@@ -24,8 +23,8 @@ def get_dataset(config, mode, transform=None, *args, **kwargs):
                             img_size=config.img_dim, 
                             classes=config.classes['neu'],
                             img_channel=config.img_channel['neu'], 
-                            preprocess=config.preprocess, 
                             *args, **kwargs)
+        
     elif name == 'magnetic':
         dataset = MagneticDataset(root=config.root['magnetic'], 
                                   classes=config.classes['magnetic'], 
@@ -33,7 +32,7 @@ def get_dataset(config, mode, transform=None, *args, **kwargs):
                                   img_size=config.img_dim, 
                                   img_channel=config.img_channel['magnetic'], 
                                   train_valid_split=config.train_valid_split, 
-                                  preprocess=config.preprocess, 
+                                 
                                   *args, **kwargs)
     elif name == 'dagm':
         dataset = DAGMDataset(root=config.root['dagm'], 
@@ -42,14 +41,14 @@ def get_dataset(config, mode, transform=None, *args, **kwargs):
                             img_channel=config.img_channel['dagm'],
                             mode=mode,
                             transform=transform,
-                            preprocess=config.preprocess,
+                            
                             *args, **kwargs)
     elif name == 'aitex':
         dataset = AITEXDataset(root=config.root['aitex'],
                                classes=config.classes['aitex'],
                                img_size=config.img_dim,
                                img_channel=config.img_channel['aitex'],
-                               preprocess=config.preprocess,
+                               
                                transform=transform, 
                                *args, **kwargs)
         

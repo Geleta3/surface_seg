@@ -4,19 +4,16 @@ import torch
 import numpy as np 
 import math 
 from typing import Tuple, List
-from .img_processing import MultiInputImage
 import os 
 
 
 class AITEXDataset(Dataset):
     def __init__(self, root, classes, img_size=224, 
-                 img_channel=3, preprocess=True, transform=None,):
+                 img_channel=3, transform=None,):
         
         self.transform = transform
         self.classes = classes
         self.img_channel = img_channel
-        self.preprocess = preprocess
-        self.multi_input = MultiInputImage()
         self.img_size = img_size
         
         self.img_paths = []
@@ -57,11 +54,6 @@ class AITEXDataset(Dataset):
             w, h, c = image.shape 
         elif len(image.shape) == 3: # RGB 
             w, h, c = image.shape
-        
-        if self.preprocess:
-            image = self.multi_input(image)
-            image_channels = self.multi_input.img_channels
-            self.multi_input.img_channels = []
         
         if isinstance(self.img_size, (Tuple, List)):
             new_h, new_w = self.img_size[0], self.img_size[1]

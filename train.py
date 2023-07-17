@@ -51,28 +51,7 @@ def train_one_epoch(model, epoch, loss, optimizer, dataloader, device, classes):
             
     return total_loss 
 
-def learning_rate(epoch, start=0.0005, end=0.00001):
-    rate = (start - end)/150
-    return start - epoch*rate 
-    
-    
-def learning_rate(loss,  lr):
-    if loss > 0.15:
-        return lr 
-    else:
-        return lr/10
 
-def transform(image, mask):
-    p = random.random()
-    img_transform = []
-    mask_transform = []
-    if p > 0.5:
-        img_transform.append(T.RandomHorizontalFlip(p))
-        mask_transform.append(T.RandomHorizontalFlip(p))
-    
-    return T.Compose(img_transform)(image), T.Compose(mask_transform)(mask)
-
-# Normalize - img/255
 if __name__ == "__main__":
     
     config = Config()
@@ -81,7 +60,7 @@ if __name__ == "__main__":
     classes = config.classes[config.dataset]
     
     ########
-    train_ds = get_dataset(config=config, mode='train', make_binary=config.make_binary, transform=transform)
+    train_ds = get_dataset(config=config, mode='train', make_binary=config.make_binary)
     valid_ds = get_dataset(config=config, mode='valid', make_binary=config.make_binary)
     
     train_dl = DataLoader(train_ds, batch_size=config.batch_size, shuffle=True, num_workers=0)
@@ -145,10 +124,6 @@ if __name__ == "__main__":
         
         avg_loss = sum(total_loss)/len(total_loss)
         rl_scheduler.step(avg_loss)
-        # if min_loss > avg_loss:
-        #     min_loss = avg_loss
-        # if mid_loss > avg_loss:
-        #     mid_loss = avg_loss
             
         if iou > best_iou:
             torch.save({
@@ -166,16 +141,5 @@ if __name__ == "__main__":
         avg_entropy = sum(entropy)/len(entropy)
         print('BEST IOU SO FAR: ', best_iou)
         print('AVG ENTROPY: ', avg_entropy)
-        
-        # Update lr 
-        # if avg_loss < config.loss_threshold:
-        #     count += 1
-
-        # if count >= patience:
-        #     lr = 0.1*config.init_lr
-        # else:
-        #     lr = config.init_lr
-        # print(f'Epoch {i} lr = {lr}')
-        # optimizer.param_groups[0]['lr'] = lr
 
     
