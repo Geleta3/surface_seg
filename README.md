@@ -1,3 +1,8 @@
+
+- A sample of the Magnetic Tile defect dataset
+  
+![](figure/MT.jpg)
+
 Pixel-level surface defect detection is critical in various industries, such as manufacturing, quality control, and product inspection. Detecting and classifying defects on surfaces is essential to ensure the production of high-quality products and prevent faulty or defective items from reaching the market.
 
 In recent years, significant progress has been made in developing automated systems for surface defect detection. These systems utilize advanced computer vision techniques and machine learning algorithms to analyze images and identify defects at the pixel level.
@@ -11,7 +16,3 @@ Another important aspect of pixel-level surface defect detection is real-time pr
 Furthermore, some studies have explored the use of multispectral imaging for surface defect detection. By capturing images at different wavelengths, these systems can reveal hidden defects that may not be visible in standard RGB images. Multispectral imaging can enhance the detection capabilities of surface defect detection systems, especially for defects that are challenging to perceive with the naked eye.
 
 Overall, pixel-level surface defect detection plays a vital role in ensuring product quality and minimizing the risk of faulty items reaching consumers. With advancements in computer vision and machine learning techniques, automated defect detection systems are becoming more accurate, efficient, and capable of real-time processing. These systems have the potential to revolutionize quality control processes across various industries, leading to improved product quality and customer satisfaction.
-
-- A sample of the Magnetic Tile defect dataset
-  
-![](figure/MT.jpg)
