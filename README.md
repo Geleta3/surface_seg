@@ -52,31 +52,6 @@ The `evaluate.py` script facilitates a comprehensive evaluation of the trained m
 The evaluation script also visualizes predictions and saves them for qualitative analysis.
 
 ## Repository Structure
-└──
-├── dataset \n
-│ ├── dataset.py
-│ ├── aitex.py
-│ ├── dagm.py
-│ ├── magnetic.py
-│ ├── mt.py
-│ └── neu.py
-├── figure
-│ └── MT.jpg
-├── models
-│ ├── init.py
-│ ├── model.py
-│ ├── pretrained.py
-│ └── unet.py
-└── utils
-├── logger.py
-├── loss.py
-├── utils.py
-└── visualization.py
-├── init.py
-├── README.md
-├── config.py
-├── evaluate.py
-└── train.py
 - **`dataset/`:** Contains dataset loading and preprocessing code.
 - **`models/`:**  Houses the implementations of different deep learning models.
 - **`utils/`:**  Includes utility functions for loss calculation, logging, and visualization.
