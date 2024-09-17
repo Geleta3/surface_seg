@@ -61,7 +61,7 @@ The evaluation script also visualizes predictions and saves them for qualitative
 
 ## Getting Started
 
-1. **Clone the repository:** `git clone https://github.com/your-username/your-repository.git`
+1. **Clone the repository:** `git clone https://github.com/Geleta3/surface_seg.git`
 2. **Prepare the dataset:** Download and structure the Magnetic Tile defect dataset according to the instructions in the `dataset/` directory.
 3. **Configure the training:** Modify the `config.py` file to adjust hyperparameters, dataset paths, and model choices.
 4. **Train the model:** `python train.py`
