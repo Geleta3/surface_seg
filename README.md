@@ -53,9 +53,7 @@ The evaluation script also visualizes predictions and saves them for qualitative
 
 ## Repository Structure
 └──
-├── dataset
-│ ├── pycache
-│ │ └── ...
+├── dataset \n
 │ ├── dataset.py
 │ ├── aitex.py
 │ ├── dagm.py
@@ -65,21 +63,15 @@ The evaluation script also visualizes predictions and saves them for qualitative
 ├── figure
 │ └── MT.jpg
 ├── models
-│ ├── pycache
-│ │ └── ...
 │ ├── init.py
 │ ├── model.py
 │ ├── pretrained.py
 │ └── unet.py
 └── utils
-├── pycache
-│ └── ...
 ├── logger.py
 ├── loss.py
 ├── utils.py
 └── visualization.py
-├── pycache
-│ └── ...
 ├── init.py
 ├── README.md
 ├── config.py
