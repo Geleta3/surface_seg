@@ -52,3 +52,18 @@ The `evaluate.py` script facilitates a comprehensive evaluation of the trained m
 The evaluation script also visualizes predictions and saves them for qualitative analysis.
 
 ## Repository Structure
+- **`dataset/`:** Contains dataset loading and preprocessing code.
+- **`models/`:**  Houses the implementations of different deep learning models.
+- **`utils/`:**  Includes utility functions for loss calculation, logging, and visualization.
+- **`config.py`:**  Centralized configuration file.
+- **`train.py`:**  Script for training the model.
+- **`evaluate.py`:**  Script for evaluating the trained model.
+
+## Getting Started
+
+1. **Clone the repository:** `git clone https://github.com/your-username/your-repository.git`
+2. **Install dependencies:** `pip install -r requirements.txt`
+3. **Prepare the dataset:** Download and structure the Magnetic Tile defect dataset according to the instructions in the `dataset/` directory.
+4. **Configure the training:** Modify the `config.py` file to adjust hyperparameters, dataset paths, and model choices.
+5. **Train the model:** `python train.py`
+6. **Evaluate the model:** `python evaluate.py`
