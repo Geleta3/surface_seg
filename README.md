@@ -1,18 +1,54 @@
+# Pixel-level Surface Defect Detection for Magnetic Tile Images
 
-- A sample of the Magnetic Tile defect dataset
-  
-![](figure/MT.jpg)
+This repository provides a robust framework for pixel-level surface defect detection, focusing on Magnetic Tile images. It offers a comprehensive solution, from dataset loading and model training to evaluation, leveraging advanced computer vision techniques and deep learning algorithms.
 
-Pixel-level surface defect detection is critical in various industries, such as manufacturing, quality control, and product inspection. Detecting and classifying defects on surfaces is essential to ensure the production of high-quality products and prevent faulty or defective items from reaching the market.
+## Table of Contents
 
-In recent years, significant progress has been made in developing automated systems for surface defect detection. These systems utilize advanced computer vision techniques and machine learning algorithms to analyze images and identify defects at the pixel level.
+- [Introduction](#introduction)
+- [Dataset](#dataset)
+- [Model](#model)
+- [Training](#training)
+- [Evaluation](#evaluation)
+- [Repository Structure](#repository-structure)
+- [Getting Started](#getting-started)
 
-One of the key challenges in pixel-level surface defect detection is distinguishing between normal variations in surface texture and actual defects. Surface defects can come in various forms, such as scratches, dents, cracks, or stains. These defects can be subtle and difficult to detect, especially when they occur on complex surfaces or have similar visual characteristics to the surrounding texture.
+## Introduction
 
-To address this challenge, researchers have developed sophisticated algorithms that leverage deep learning techniques, such as convolutional neural networks (CNNs). CNNs are capable of learning complex patterns and features from large datasets, making them ideal for surface defect detection tasks. By training the CNN on a diverse set of labelled images, it can learn to distinguish between normal and defective regions with high accuracy.
+Pixel-level surface defect detection plays a crucial role in ensuring product quality across industries. This repository addresses the challenge of identifying and classifying surface defects on Magnetic Tile images, a task vital for maintaining high manufacturing standards.
 
-Another important aspect of pixel-level surface defect detection is real-time processing. In industries where high-speed production lines are common, it is crucial to have a system that can analyze images rapidly and provide immediate feedback. To achieve real-time processing, researchers have optimized algorithms and utilized parallel computing techniques to accelerate the defect detection process.
+## Dataset
 
-Furthermore, some studies have explored the use of multispectral imaging for surface defect detection. By capturing images at different wavelengths, these systems can reveal hidden defects that may not be visible in standard RGB images. Multispectral imaging can enhance the detection capabilities of surface defect detection systems, especially for defects that are challenging to perceive with the naked eye.
+The repository includes a dedicated dataset module (`dataset`) designed to handle the Magnetic Tile defect dataset. It provides functionalities for:
 
-Overall, pixel-level surface defect detection plays a vital role in ensuring product quality and minimizing the risk of faulty items reaching consumers. With advancements in computer vision and machine learning techniques, automated defect detection systems are becoming more accurate, efficient, and capable of real-time processing. These systems have the potential to revolutionize quality control processes across various industries, leading to improved product quality and customer satisfaction.
+- Loading and preprocessing images and corresponding masks.
+- Splitting the dataset into training and validation sets.
+- Supporting data augmentation techniques to enhance model robustness.
+
+## Model
+
+The `models` module provides implementations of various deep learning architectures suitable for semantic segmentation, the core task in pixel-level defect detection. The repository currently supports:
+
+- **U-Net:** A widely adopted architecture for biomedical image segmentation, easily adaptable for defect detection.
+
+The modular design allows for easy integration of additional architectures.
+
+## Training
+
+The training process is streamlined with a dedicated training script (`train.py`). Key features include:
+
+- **Configuration:** A centralized configuration file (`config.py`) allows for easy modification of hyperparameters, dataset paths, and model choices.
+- **Loss Function:** The `utils.loss` module provides implementations of commonly used loss functions for segmentation tasks, such as cross-entropy loss.
+- **Optimizer and Scheduler:** The training script utilizes the Adam optimizer and a learning rate scheduler to optimize the training process.
+- **Logging and Checkpointing:** The `utils.logger` module enables logging of training metrics and saving model checkpoints for later analysis or resumption.
+
+## Evaluation
+
+The `evaluate.py` script facilitates a comprehensive evaluation of the trained model. It calculates metrics such as:
+
+- **IOU (Intersection over Union):** A standard metric for evaluating segmentation performance.
+- **F1-score:**  A measure of the model's accuracy considering both precision and recall.
+- **Average Precision (AP):** A metric that provides a comprehensive assessment of the model's performance across different confidence thresholds.
+
+The evaluation script also visualizes predictions and saves them for qualitative analysis.
+
+## Repository Structure
